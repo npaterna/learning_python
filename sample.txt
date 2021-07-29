@@ -1,0 +1,9 @@
+Hello
+
+I am the sample file!
+
+I am helping Nick learn python.
+
+I love you, stay safe.
+
+Blessed be.

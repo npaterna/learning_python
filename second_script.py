@@ -62,3 +62,38 @@ assert total_pyrimide + total_purine == sequence_length, "womp womp"
 
 print("Total purines found:", total_purine)
 print("Total pyrimidines found:", total_pyrimide)
+
+#### Looking for Stop Codons in Seq ####
+
+stops = ["TAA", "TAG", "TGA"] #Defines the three stop codons that could be present in our seq
+
+for i in range(0, len(sequence), 3):
+    sample_codon = sequence[i:i+3]
+    if sample_codon in stops:
+        print("A stop codon was found at nucleotide number", float(i+1))
+        print("There's a stop, and it is at codon number", int(i/3 + 1))
+
+# Using the script to build up a dictionary dynamically
+
+#### Working with Dictionaries ####
+
+import pprint 
+# Using the function to load a package in our script
+# To call a function from a library use this: library.function
+
+how_many = {} # Creating a blank dictionary
+dictionary_seq = "TAAGCAGTTTAACGCGTAAGCCTTTGGTAGCGATACGGATTCCCAGGATAAGAGACTAGGACCACCCGA"
+print(len(dictionary_seq))
+
+for i in range(0, len(dictionary_seq), 3):
+    chosen_codon = dictionary_seq[i:i+3]
+    if chosen_codon not in how_many:
+        how_many[chosen_codon] = 1
+    else:
+        how_many[chosen_codon] += 1
+print(how_many)
+
+the_values = list(how_many.values())
+print(the_values)
+
+assert sum(the_values) == len(dictionary_seq)/3, "Fail <3"
